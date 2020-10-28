@@ -635,12 +635,13 @@ kubectl apply -f kubernetes/deployment.yaml
 
 ## 구현  
 
-1. Request 서비스에서 결재 요청 시 method가 coupon일 경우 Customer 서비스의 쿠폰 사용을 통해 결재가 진행되도록 구현하였다. (동기식 호출)
-2. Request 서비스에서 Coupon을 이용한 결재 취소 시 Customer 서비스가 비동기로 호출되어 Coupon의 수가 다시 하나 증가한다. (SAGA)
-3. Coupon으로 결재한 배송건에 대해서도 기존의 DeliveryDashBoard를 통해 조회 가능하다.(CQRS)
-4. 관리자에 의해 등급이 조정되며 등급이 상향되면 Point 서비스를 호출하여 포인트를 준다. (비동기식 호출)
+1. Request 서비스에서 결재 요청 시 method가 coupon일 경우 Customer 서비스의 쿠폰 사용을 통해 결재가 진행되도록 구현하였다 (동기식 호출)
+2. Request 서비스에서 Coupon을 이용한 결재 취소 시 Customer 서비스가 비동기로 호출되어 Coupon의 수가 다시 하나 증가한다 (SAGA)
+3. Coupon으로 결재한 배송건에 대해서도 기존의 DeliveryDashBoard를 통해 조회 가능하다 (CQRS)
+4. 관리자에 의해 등급이 조정되며 등급이 상향되면 Point 서비스를 호출하여 포인트를 준다 (비동기식 호출)
 
 ## 기능 TEST
+##동기식 호출
 Customer 서비스를 중지시키고 Coupon을 이용해 결재를 요청한다. 
 http post http://localhost:8081/requests memberId=1 qty=1 method="coupon"
 오류 이미지
@@ -649,9 +650,42 @@ Customer 서비스를 중지시키고 Coupon을 이용해 결재를 요청한다
 http post http://localhost:8081/requests memberId=1 qty=1 method="coupon"
 성공이미지
 
+##SAGA
+결재 취소 전 Coustomer에서 해당 MemberId의 상태를 조회한다
+http http://localhost:8086/customers/1
+조회 이미지
 
+Coupon을 이용해 기 결재요청한 주문건에 대해 취소한다.
+http put http://localhost:8081/requests/1 memberId=1 qty=1 method="coupon" status="쿠폰을이용해취소"
+주문 취소이미지
+
+결재 취소 후 Coustomer에서 해당 MemberId의 상태를 조회한다
+http http://localhost:8086/customers/1
+조회 이미지
+
+##CQRS
+DeliveryDashBoard를 조회한다
+http http://localhost:8084/deliveryboards
+조회 이미지
+
+##비동기식 호출
+등급 조정 전 MmemberId 1에 대해 Point를 조회한다
+http http://localhost:8085/points/1
+조회 이미지
+
+Customer 서비스에서 MemberId 1에 대해 등급을 상향한다.
+http put http://localhost:8086/customers/1 status="levelup" request=10 lever="vip"
+등급 조정 이미지
+
+등급 조정 후 MmemberId 1에 대해 Point를 조회한다
+http http://localhost:8085/points/1
+조회 이미지
 
 ## GateWay
+GateWay 설정 이미지
+
+http http://apigate:8080/customers
+GateWay  이미지
 
 ## 운영과 Retirement
 Request/Response 방식으로 구현하지 않았기 때문에 서비스가 더이상 불필요해져도 Deployment 에서 제거되면 기존 마이크로 서비스에 어떤 영향도 주지 않음.
