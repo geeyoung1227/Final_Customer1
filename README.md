@@ -641,25 +641,32 @@ kubectl apply -f kubernetes/deployment.yaml
 4. 관리자에 의해 등급이 조정되며 등급이 상향되면 Point 서비스를 호출하여 포인트를 준다 
 
 ## 구현 기능 설명
+```
 Request 서비스에서 Coupon을 이용해 결재를 요청한다
 http post http://localhost:8081/requests memberId=1 qty=1 method="coupon"
+```
 ![image](https://user-images.githubusercontent.com/69283675/97471374-fd8da880-198b-11eb-82ef-eb97cbc01c91.png)
-
+```
 Customer 서비스에서 접수 건을 조회한다
 http http://localhost:8086/customer/1
+```
 ![image](https://user-images.githubusercontent.com/69283675/97471594-3d549000-198c-11eb-9fe8-0587213b5927.png)
-
+```
 Delvery 서비스에서 접수 건을 조회한다
 http http://localhost:8083/deliveries/1
+```
 ![image](https://user-images.githubusercontent.com/69283675/97471800-712fb580-198c-11eb-9996-c376046db09a.png)
 
 ## 동기식 호출
+```
 Customer 서비스를 중지시키고 Coupon을 이용해 결재를 요청한다
 http post http://localhost:8081/requests memberId=1 qty=1 method="coupon"
+```
 ![image](https://user-images.githubusercontent.com/69283675/97470804-501a9500-198b-11eb-9fce-4bc64d8d7d22.png)
-
+```
 Customer 서비스를 다시 실행시키고 Coupon을 이용해 결재를 요청한다
 http post http://localhost:8081/requests memberId=1 qty=1 method="coupon"
+```
 ![image](https://user-images.githubusercontent.com/69283675/97470892-6c1e3680-198b-11eb-99a6-a461a1b913c0.png)
 
 ## CQRS
@@ -668,16 +675,20 @@ http http://localhost:8084/deliveryboards
 ![image](https://user-images.githubusercontent.com/69283675/97472018-b6ec7e00-198c-11eb-8b1b-7b9d75a7b34b.png)
 
 ## 비동기식 호출
+```
 등급 조정 전 memberId 1에 대해 Point를 조회한다
 http http://localhost:8085/points/1
+```
 ![image](https://user-images.githubusercontent.com/69283675/97472083-c79cf400-198c-11eb-8ef6-92195112c245.png)
-
+```
 Point 서비스를 중지하고 Customer 서비스에서 memberId 1에 대해 등급을 조정한다.
 http http://localhost:8086/customers status="LevelUp" memberId=1 level="Gold" 
+```
 ![image](https://user-images.githubusercontent.com/69283675/97473781-b81eaa80-198e-11eb-89ca-a7a288681339.png)
-
+```
 등급 조정 후 mmemberId 1에 대해 Point를 조회한다
 http http://localhost:8085/points/1
+```
 ![image](https://user-images.githubusercontent.com/69283675/97472438-311d0280-198d-11eb-89ce-8c56476bee93.png)
 
 ## GateWay
@@ -701,14 +712,23 @@ GateWay  이미지
 configmap.yml
 ```
 ![image](https://user-images.githubusercontent.com/69283675/97508707-a5729880-19c3-11eb-82b4-fd8e7d900069.png)
+```
 deployment.yml
+```
 ![image](https://user-images.githubusercontent.com/69283675/97508741-bb805900-19c3-11eb-9db7-3855877f5423.png)
+```
 application.yaml
+```
 ![image](https://user-images.githubusercontent.com/69283675/97508763-ca670b80-19c3-11eb-82e8-f69526fd2ef6.png)
+```
 customerService
+```
 ![image](https://user-images.githubusercontent.com/69283675/97508790-de127200-19c3-11eb-88fb-4c8a09be210f.png)
+```
 80포트로 변경 후 test
+```
 ![image](https://user-images.githubusercontent.com/69283675/97508816-eb2f6100-19c3-11eb-9991-30e7b3043472.png)
+
 ## Self-healing (Liveness Probe)
 
 
