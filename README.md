@@ -697,7 +697,16 @@ GateWay  이미지
 ## Zero-downtime deploy (Readness Probe)
 
 ## Config Map
-
+configmap.yml
+![image](https://user-images.githubusercontent.com/69283675/97508707-a5729880-19c3-11eb-82b4-fd8e7d900069.png)
+deployment.yml
+![image](https://user-images.githubusercontent.com/69283675/97508741-bb805900-19c3-11eb-9db7-3855877f5423.png)
+application.yaml
+![image](https://user-images.githubusercontent.com/69283675/97508763-ca670b80-19c3-11eb-82e8-f69526fd2ef6.png)
+customerService
+![image](https://user-images.githubusercontent.com/69283675/97508790-de127200-19c3-11eb-88fb-4c8a09be210f.png)
+80포트로 변경 후 test
+![image](https://user-images.githubusercontent.com/69283675/97508816-eb2f6100-19c3-11eb-9991-30e7b3043472.png)
 ## Self-healing (Liveness Probe)
 
 
