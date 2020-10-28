@@ -50,6 +50,7 @@ public class PolicyHandler{
                     customerRepository.save(customer);
                 }
             }
+
             System.out.println("##### listener CouponPol : " + delivered.toJson());
         }
     }
