@@ -623,26 +623,19 @@ kubectl apply -f kubernetes/deployment.yaml
 
 
 
-# 신규 개발 조직의 추가
-
-  ![image](https://user-images.githubusercontent.com/487999/79684133-1d6c4300-826a-11ea-94a2-602e61814ebf.png)
-
-
-## 마케팅팀의 추가
-    - KPI: 신규 고객의 유입률 증대와 기존 고객의 충성도 향상
-    - 구현계획 마이크로 서비스: 기존 customer 마이크로 서비스를 인수하며, 고객에 음식 및 맛집 추천 서비스 등을 제공할 예정
-
+# Customer Service 추가
 ## 이벤트 스토밍 
-    ![image](https://user-images.githubusercontent.com/487999/79685356-2b729180-8273-11ea-9361-a434065f2249.png)
+
+ ![image](https://user-images.githubusercontent.com/69283675/97428987-2137fb00-195a-11eb-82ad-188874987b5f.png)
 
 
 ## 헥사고날 아키텍처 변화 
 
-![image](https://user-images.githubusercontent.com/487999/79685243-1d704100-8272-11ea-8ef6-f4869c509996.png)
+![image](https://user-images.githubusercontent.com/69283675/97429110-50e70300-195a-11eb-9286-bdf18613f838.png)
 
 ## 구현  
 
-기존의 마이크로 서비스에 수정을 발생시키지 않도록 Inbund 요청을 REST 가 아닌 Event 를 Subscribe 하는 방식으로 구현. 기존 마이크로 서비스에 대하여 아키텍처나 기존 마이크로 서비스들의 데이터베이스 구조와 관계없이 추가됨. 
+Request Service에서 결재 요청 시 method 파라미터를 추가하여 coupon 선택 시 Customer 서비스에 
 
 ## 운영과 Retirement
 
