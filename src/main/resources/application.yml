@@ -57,8 +57,8 @@ spring:
       bindings:
         event-in:
           group: customer
-          destination: takbaeyojy
+          destination: takbaeyo
           contentType: application/json
         event-out:
-          destination: takbaeyojy
+          destination: takbaeyo
           contentType: application/json
