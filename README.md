@@ -633,53 +633,52 @@ kubectl apply -f kubernetes/deployment.yaml
 
 ![image](https://user-images.githubusercontent.com/69283675/97429110-50e70300-195a-11eb-9286-bdf18613f838.png)
 
-## 구현  
+## 서비스 시나리오  
 
-1. Request 서비스에서 결재 요청 시 method가 coupon일 경우 Customer 서비스의 쿠폰 사용을 통해 결재가 진행되도록 구현하였다 (동기식 호출)
-2. Request 서비스에서 Coupon을 이용한 결재 취소 시 Customer 서비스가 비동기로 호출되어 Coupon의 수가 다시 하나 증가한다 (SAGA)
-3. Coupon으로 결재한 배송건에 대해서도 기존의 DeliveryDashBoard를 통해 조회 가능하다 (CQRS)
-4. 관리자에 의해 등급이 조정되며 등급이 상향되면 Point 서비스를 호출하여 포인트를 준다 (비동기식 호출)
+1. Request 서비스에서 결재 요청 시 method가 coupon일 경우 Customer 서비스를 통해 결재가 진행되도록 구현하였다
+2. Request 서비스에서 Coupon을 이용한 결재 취소 시 Customer 서비스가 비동기로 호출된다
+3. Coupon으로 결재한 배송건에 대해서도 기존의 DeliveryDashBoard를 통해 조회 가능하다 
+4. 관리자에 의해 등급이 조정되며 등급이 상향되면 Point 서비스를 호출하여 포인트를 준다 
 
-## 기능 TEST
+## 구현 기능 설명
+Request 서비스에서 Coupon을 이용해 결재를 요청한다
+http post http://localhost:8081/requests memberId=1 qty=1 method="coupon"
+![image](https://user-images.githubusercontent.com/69283675/97471374-fd8da880-198b-11eb-82ef-eb97cbc01c91.png)
+
+Customer 서비스에서 접수 건을 조회한다
+http http://localhost:8086/customer/1
+![image](https://user-images.githubusercontent.com/69283675/97471594-3d549000-198c-11eb-9fe8-0587213b5927.png)
+
+Delevery 서비스에서 접수 건을 조회한다
+http http://localhost:8083/deliveries/1
+![image](https://user-images.githubusercontent.com/69283675/97471800-712fb580-198c-11eb-9996-c376046db09a.png)
+
 ## 동기식 호출
-Customer 서비스를 중지시키고 Coupon을 이용해 결재를 요청한다. 
+Customer 서비스를 중지시키고 Coupon을 이용해 결재를 요청한다
 http post http://localhost:8081/requests memberId=1 qty=1 method="coupon"
-오류 이미지
+![image](https://user-images.githubusercontent.com/69283675/97470804-501a9500-198b-11eb-9fce-4bc64d8d7d22.png)
 
-Customer 서비스를 중지시키고 Coupon을 이용해 결재를 요청한다. 
+Customer 서비스를 다시 실행시키고 Coupon을 이용해 결재를 요청한다
 http post http://localhost:8081/requests memberId=1 qty=1 method="coupon"
-성공이미지
-
-## SAGA
-결재 취소 전 Coustomer에서 해당 MemberId의 상태를 조회한다
-http http://localhost:8086/customers/1
-조회 이미지
-
-Coupon을 이용해 기 결재요청한 주문건에 대해 취소한다.
-http put http://localhost:8081/requests/1 memberId=1 qty=1 method="coupon" status="쿠폰을이용해취소"
-주문 취소이미지
-
-결재 취소 후 Coustomer에서 해당 MemberId의 상태를 조회한다
-http http://localhost:8086/customers/1
-조회 이미지
+![image](https://user-images.githubusercontent.com/69283675/97470892-6c1e3680-198b-11eb-99a6-a461a1b913c0.png)
 
 ## CQRS
 DeliveryDashBoard를 조회한다
 http http://localhost:8084/deliveryboards
-조회 이미지
+![image](https://user-images.githubusercontent.com/69283675/97472018-b6ec7e00-198c-11eb-8b1b-7b9d75a7b34b.png)
 
 ## 비동기식 호출
 등급 조정 전 MmemberId 1에 대해 Point를 조회한다
 http http://localhost:8085/points/1
-조회 이미지
+![image](https://user-images.githubusercontent.com/69283675/97472083-c79cf400-198c-11eb-8ef6-92195112c245.png)
 
 Customer 서비스에서 MemberId 1에 대해 등급을 상향한다.
-http put http://localhost:8086/customers/1 status="levelup" request=10 lever="vip"
-등급 조정 이미지
+http http://localhost:8086/customers status="LevelUp" memberId=1 level="Gold" 
+![image](https://user-images.githubusercontent.com/69283675/97472219-f2874800-198c-11eb-8332-174a1823e23a.png)
 
 등급 조정 후 MmemberId 1에 대해 Point를 조회한다
 http http://localhost:8085/points/1
-조회 이미지
+![image](https://user-images.githubusercontent.com/69283675/97472438-311d0280-198d-11eb-89ce-8c56476bee93.png)
 
 ## GateWay
 ![image](https://user-images.githubusercontent.com/69283675/97434407-521c2e00-1962-11eb-84a2-517baa1e311d.png)
