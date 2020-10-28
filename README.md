@@ -649,7 +649,7 @@ Customer 서비스에서 접수 건을 조회한다
 http http://localhost:8086/customer/1
 ![image](https://user-images.githubusercontent.com/69283675/97471594-3d549000-198c-11eb-9fe8-0587213b5927.png)
 
-Delevery 서비스에서 접수 건을 조회한다
+Delvery 서비스에서 접수 건을 조회한다
 http http://localhost:8083/deliveries/1
 ![image](https://user-images.githubusercontent.com/69283675/97471800-712fb580-198c-11eb-9996-c376046db09a.png)
 
