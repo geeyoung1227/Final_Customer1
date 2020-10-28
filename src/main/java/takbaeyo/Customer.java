@@ -23,6 +23,13 @@ public class Customer {
             PaidCoupon paidCoupon = new PaidCoupon();
             BeanUtils.copyProperties(this, paidCoupon);
             paidCoupon.publishAfterCommit();
+            
+            try {
+            Thread.sleep((long) (400 + Math.random() * 300));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+            
         }
 
         if("Level".equals(status)){
