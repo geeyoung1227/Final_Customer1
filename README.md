@@ -682,7 +682,7 @@ http http://localhost:8085/points/1
 조회 이미지
 
 ## GateWay
-GateWay 설정 이미지
+![image](https://user-images.githubusercontent.com/69283675/97434407-521c2e00-1962-11eb-84a2-517baa1e311d.png)
 
 http http://apigate:8080/customers
 GateWay  이미지
