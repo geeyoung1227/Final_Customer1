@@ -626,7 +626,7 @@ kubectl apply -f kubernetes/deployment.yaml
 # Customer Service 추가
 ## 이벤트 스토밍 
 
- ![image](https://user-images.githubusercontent.com/69283675/97428987-2137fb00-195a-11eb-82ad-188874987b5f.png)
+![image](https://user-images.githubusercontent.com/69283675/97433597-1af94d00-1961-11eb-802b-c6895a1792da.png)
 
 
 ## 헥사고날 아키텍처 변화 
@@ -688,8 +688,8 @@ http http://apigate:8080/customers
 GateWay  이미지
 
 ## Deploy/Pipeline 
-CI 이미지
-CD 이미지
+![image](https://user-images.githubusercontent.com/69283675/97433817-6e6b9b00-1961-11eb-848d-00132bdc13fa.png)
+![image](https://user-images.githubusercontent.com/69283675/97433863-83e0c500-1961-11eb-986f-cef5b31b919c.png)
 
 ## Circuit Breaker
 
