@@ -668,15 +668,15 @@ http http://localhost:8084/deliveryboards
 ![image](https://user-images.githubusercontent.com/69283675/97472018-b6ec7e00-198c-11eb-8b1b-7b9d75a7b34b.png)
 
 ## 비동기식 호출
-등급 조정 전 MmemberId 1에 대해 Point를 조회한다
+등급 조정 전 memberId 1에 대해 Point를 조회한다
 http http://localhost:8085/points/1
 ![image](https://user-images.githubusercontent.com/69283675/97472083-c79cf400-198c-11eb-8ef6-92195112c245.png)
 
-Customer 서비스에서 MemberId 1에 대해 등급을 상향한다.
+Point 서비스를 중지하고 Customer 서비스에서 memberId 1에 대해 등급을 조정한다.
 http http://localhost:8086/customers status="LevelUp" memberId=1 level="Gold" 
-![image](https://user-images.githubusercontent.com/69283675/97472219-f2874800-198c-11eb-8332-174a1823e23a.png)
+![image](https://user-images.githubusercontent.com/69283675/97473781-b81eaa80-198e-11eb-89ca-a7a288681339.png)
 
-등급 조정 후 MmemberId 1에 대해 Point를 조회한다
+등급 조정 후 mmemberId 1에 대해 Point를 조회한다
 http http://localhost:8085/points/1
 ![image](https://user-images.githubusercontent.com/69283675/97472438-311d0280-198d-11eb-89ce-8c56476bee93.png)
 
