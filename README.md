@@ -704,9 +704,8 @@ http http://apigate:8080/customers
 ![image](https://user-images.githubusercontent.com/69283675/97433817-6e6b9b00-1961-11eb-848d-00132bdc13fa.png)
 ![image](https://user-images.githubusercontent.com/69283675/97433863-83e0c500-1961-11eb-986f-cef5b31b919c.png)
 
-## Circuit Breaker
-
-## AutoScale(HPA)
+## Polyglot
+![image](https://user-images.githubusercontent.com/69283675/97517700-0c4e7c80-19d9-11eb-829c-c0e44c4cb2fb.png)
 
 ## Zero-downtime deploy (Readness Probe)
 ```
