@@ -709,6 +709,14 @@ http http://apigate:8080/customers
 ## AutoScale(HPA)
 
 ## Zero-downtime deploy (Readness Probe)
+```
+Readness 적용 전
+```
+![image](https://user-images.githubusercontent.com/69283675/97514693-bd054d80-19d2-11eb-8ce7-a18cfec97352.png)
+```
+Readness 적용 후
+```
+![image](https://user-images.githubusercontent.com/69283675/97514727-cabad300-19d2-11eb-9e24-2bf0d007274d.png)
 
 ## Config Map
 ```
