@@ -631,7 +631,7 @@ kubectl apply -f kubernetes/deployment.yaml
 
 ## 헥사고날 아키텍처 변화 
 
-![image](https://user-images.githubusercontent.com/69283675/97429110-50e70300-195a-11eb-9286-bdf18613f838.png)
+![image](https://user-images.githubusercontent.com/69283675/97517915-8252e380-19d9-11eb-82b9-07c8123ebac4.png)
 
 ## 서비스 시나리오  
 
