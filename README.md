@@ -670,8 +670,10 @@ http post http://localhost:8081/requests memberId=1 qty=1 method="coupon"
 ![image](https://user-images.githubusercontent.com/69283675/97470892-6c1e3680-198b-11eb-99a6-a461a1b913c0.png)
 
 ## CQRS
+```
 DeliveryDashBoard를 조회한다
 http http://localhost:8084/deliveryboards
+```
 ![image](https://user-images.githubusercontent.com/69283675/97472018-b6ec7e00-198c-11eb-8b1b-7b9d75a7b34b.png)
 
 ## 비동기식 호출
