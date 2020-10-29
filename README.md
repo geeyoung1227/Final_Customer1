@@ -698,6 +698,7 @@ http http://localhost:8085/points/1
 ```
 http http://apigate:8080/customers
 ```
+![image](https://user-images.githubusercontent.com/69283675/97512987-53834000-19ce-11eb-99c1-c8430624faf9.png)
 
 ## Deploy/Pipeline 
 ![image](https://user-images.githubusercontent.com/69283675/97433817-6e6b9b00-1961-11eb-848d-00132bdc13fa.png)
