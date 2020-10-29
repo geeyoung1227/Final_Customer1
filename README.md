@@ -745,6 +745,6 @@ Liveness Probe 포트를 8080 적용
 ```
 ![image](https://user-images.githubusercontent.com/69283675/97511432-6f84e280-19ca-11eb-93a7-c1c4072cb9a5.png)
 ```
-Liveness Probe 초트를 8081 적용
+Liveness Probe 포트를 8081 적용
 ```
 ![image](https://user-images.githubusercontent.com/69283675/97511615-d7d3c400-19ca-11eb-9bf5-c433cb2f1571.png)
