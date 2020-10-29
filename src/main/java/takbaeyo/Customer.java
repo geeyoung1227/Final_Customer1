@@ -25,11 +25,10 @@ public class Customer {
             paidCoupon.publishAfterCommit();
             
             try {
-            Thread.sleep((long) (400 + Math.random() * 300));
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-            
+                Thread.sleep((long) (400 + Math.random() * 300));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
         if("Level".equals(status)){
