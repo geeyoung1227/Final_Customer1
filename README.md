@@ -717,6 +717,27 @@ Readness 적용 후
 ```
 ![image](https://user-images.githubusercontent.com/69283675/97514727-cabad300-19d2-11eb-9e24-2bf0d007274d.png)
 
+## Circuit Breaker
+```
+설정
+```
+
+```
+실행
+```
+![image](https://user-images.githubusercontent.com/69283675/97526536-b84d9300-19ec-11eb-97a4-1a9865b30e56.png)
+
+## Autoscale
+```
+설정
+```
+
+```
+실행
+```
+![image](https://user-images.githubusercontent.com/69283675/97526720-18dcd000-19ed-11eb-8bfe-d7505241309c.png)
+
+
 ## Config Map
 ```
 configmap.yml
