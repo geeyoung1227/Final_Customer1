@@ -19,28 +19,22 @@ public class Customer {
 
     @PostPersist
     public void onPostPersist(){
-        if("PaidCoupon".equals(status)) {
-            PaidCoupon paidCoupon = new PaidCoupon();
-            BeanUtils.copyProperties(this, paidCoupon);
-            paidCoupon.publishAfterCommit();
-            
-            try {
+        try {
                 Thread.sleep((long) (400 + Math.random() * 300));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+        
+        if("PaidCoupon".equals(status)) {
+            PaidCoupon paidCoupon = new PaidCoupon();
+            BeanUtils.copyProperties(this, paidCoupon);
+            paidCoupon.publishAfterCommit();
         }
 
         if("Level".equals(status)){
             ChangedGrade changedGrade = new ChangedGrade();
             BeanUtils.copyProperties(this, changedGrade);
             changedGrade.publishAfterCommit();
-            
-            try {
-                Thread.sleep((long) (400 + Math.random() * 300));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
     }
 
