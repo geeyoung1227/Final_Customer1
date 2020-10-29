@@ -721,7 +721,8 @@ Readness 적용 후
 ```
 설정
 ```
-
+![image](https://user-images.githubusercontent.com/69283675/97526804-4cb7f580-19ed-11eb-8d15-3b1053a9a364.png)
+![image](https://user-images.githubusercontent.com/69283675/97526892-6fe2a500-19ed-11eb-9705-9e62dd06f201.png)
 ```
 실행
 ```
@@ -731,7 +732,7 @@ Readness 적용 후
 ```
 설정
 ```
-
+![image](https://user-images.githubusercontent.com/69283675/97526964-930d5480-19ed-11eb-98b1-31f5598305f8.png)
 ```
 실행
 ```
