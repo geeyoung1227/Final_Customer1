@@ -35,6 +35,12 @@ public class Customer {
             ChangedGrade changedGrade = new ChangedGrade();
             BeanUtils.copyProperties(this, changedGrade);
             changedGrade.publishAfterCommit();
+            
+            try {
+                Thread.sleep((long) (400 + Math.random() * 300));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
