@@ -695,9 +695,9 @@ http http://localhost:8085/points/1
 
 ## GateWay
 ![image](https://user-images.githubusercontent.com/69283675/97434407-521c2e00-1962-11eb-84a2-517baa1e311d.png)
-
+```
 http http://apigate:8080/customers
-GateWay  이미지
+```
 
 ## Deploy/Pipeline 
 ![image](https://user-images.githubusercontent.com/69283675/97433817-6e6b9b00-1961-11eb-848d-00132bdc13fa.png)
